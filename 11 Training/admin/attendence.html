@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Calendar (Saturdays Disabled)</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f4f8;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    #monthYear {
+        font-size: 24px;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 50px);
+        grid-gap: 5px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .week-header {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .day {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fff;
+        transition: 0.3s;
+    }
+
+    .day.present {
+        background-color: #4CAF50; /* green */
+        color: white;
+    }
+
+    .day.absent {
+        background-color: #F44336; /* red */
+        color: white;
+    }
+
+    .day.disabled {
+        background-color: #ddd;
+        cursor: not-allowed;
+    }
+
+    .legend {
+        margin-top: 20px;
+    }
+
+    .legend span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+</style>
+</head>
+<body>
+
+<h1>Attendance Calendar</h1>
+
+<div id="monthYear"></div>
+
+<div class="calendar" id="calendar"></div>
+
+<div class="legend">
+    <div><span style="background-color:#4CAF50"></span> Present</div>
+    <div><span style="background-color:#F44336"></span> Absent</div>
+    <div><span style="background-color:#ddd"></span> Saturday / Non-working</div>
+</div>
+
+<script>
+const calendar = document.getElementById("calendar");
+const monthYearDiv = document.getElementById("monthYear");
+
+const monthNames = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+];
+
+const weekNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+// Example attendance data
+const attendanceData = {
+    1: "Present",
+    2: "Absent",
+    3: "Present",
+    4: "Present",
+    5: "Absent",
+    6: "Present",
+    7: "Absent",
+    8: "Present",
+    9: "Present",
+    10:"Absent"
+};
+
+// Month & Year
+const month = 0; // January
+const year = 2026;
+
+monthYearDiv.textContent = `${monthNames[month]} ${year}`;
+
+// Days in month
+const daysInMonth = new Date(year, month+1, 0).getDate();
+const firstDay = new Date(year, month, 1).getDay();
+
+// Week headers
+weekNames.forEach(week => {
+    const header = document.createElement("div");
+    header.classList.add("week-header");
+    header.textContent = week;
+    calendar.appendChild(header);
+});
+
+// Empty cells before first day
+for(let i=0; i<firstDay; i++){
+    const empty = document.createElement("div");
+    calendar.appendChild(empty);
+}
+
+// Render days
+for(let i=1; i<=daysInMonth; i++){
+    const day = document.createElement("div");
+    day.classList.add("day");
+    day.textContent = i;
+
+    // Determine weekday
+    const weekday = new Date(year, month, i).getDay();
+
+    // Disable Saturday
+    if(weekday === 6){
+        day.classList.add("disabled");
+    } else {
+        // Apply attendance data if exists
+        if(attendanceData[i] === "Present") day.classList.add("present");
+        if(attendanceData[i] === "Absent") day.classList.add("absent");
+    }
+
+    calendar.appendChild(day);
+}
+
+</script>
+
+</body>
+</html>

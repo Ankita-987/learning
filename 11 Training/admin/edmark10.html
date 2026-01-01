@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ED-Mark Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="ed.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+<header class="header">
+  <h2>ED-MARK COLLEGE <span class="right">Admin Panel</span></h2>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <img src="./img/adminpic.jpg" alt="Admin">
+    <h4>Welcome, Admin</h4>
+
+    <a href="#" class="menu" onclick="toggleSidebarDropdown(event)">
+      <i class="fa-solid fa-school"></i> Class
+    </a>
+    <div class="dropdown-content" id="schoolMenu">
+      <a href="edmark10.html">Class 10</a>
+      <a href="#">Class 11</a>
+      <a href="#">Class 12</a>
+    </div>
+
+    <a href="#" class="menu"><i class="fa-solid fa-money-bill"></i> Fee</a>
+    <a href="#" class="menu"><i class="fa-solid fa-square-poll-vertical"></i> Result</a>
+    <a href="./admin.html" class="menu logout">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+  </aside>
+
+  <main class="main">
+    <p class="section-title">Student Details of class 10</p>
+
+    <div class="student-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Section</th>
+            <th>Father's Name</th>
+            <th>Address</th>
+            <th>Contact</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td>
+            <td>Ankita Pokharel</td>
+            <td>A</td>
+            <td>Bhesha Raj  Pokharel</td>
+            <td>12</td>
+            <td>9800000000</td>
+            <td>
+              <a href="#" class="edit">Edit</a> |
+              <a href="#" class="delete">Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>Asmita Dahal</td>
+            <td>B</td>
+            <td>Rajan Dahal</td>
+            <td>11</td>
+            <td>9811111111</td>
+            <td>
+              <a href="#" class="edit">Edit</a> |
+              <a href="#" class="delete">Delete</a>
+            </td>
+          </tr>
+       
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<script>
+function toggleSidebarDropdown(e) {
+  e.preventDefault();
+  document.getElementById("schoolMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

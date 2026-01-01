@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ED-Mark Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="ed.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+<header class="header">
+  <h2>ED-MARK COLLEGE <span class="right">Admin Panel</span></h2>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="./img/adminpic.jpg" alt="Admin">
+    <h4>Welcome, Admin</h4>
+
+    <a href="#" class="menu" onclick="toggleSidebarDropdown(event)">
+      <i class="fa-solid fa-school"></i> Class
+    </a>
+    <div class="dropdown-content" id="schoolMenu">
+      <a href="edmark10.html">Class 10</a>
+      <a href="#">Class 11</a>
+      <a href="#">Class 12</a>
+    </div>
+
+    <a href="#" class="menu"><i class="fa-solid fa-money-bill"></i> Fee</a>
+    <a href="#" class="menu"><i class="fa-solid fa-square-poll-vertical"></i> Result</a>
+    <a href="./admin.html" class="menu logout">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+  </aside>
+
+  <main class="main">
+    <p class="section-title">Student Details</p>
+
+ 
+    </div>
+  </main>
+
+</div>
+
+<script>
+function toggleSidebarDropdown(e) {
+  e.preventDefault();
+  document.getElementById("schoolMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

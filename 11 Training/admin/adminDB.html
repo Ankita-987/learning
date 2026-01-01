@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="db.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+
+<header class="header">
+  <h2>E-Learning <span class="right">Admin Panel</span> </h2>
+ 
+</header>
+
+
+<div class="layout">
+
+
+  <aside class="sidebar">
+    <img src="./img/adminpic.jpg" alt="Admin">
+    <h4>Welcome, Admin</h4>
+
+    <a href="#" class="menu" onclick="toggleSidebarDropdown(event)">
+      <i class="fa-solid fa-school"></i> School
+    </a>
+
+    <div class="dropdown-content" id="schoolMenu">
+      <a href="#">Add School</a>
+      <a href="#"> Remove School</a>
+    </div>
+
+    <a href="#" class="menu"><i class="fa-solid fa-money-bill"></i> Fee</a>
+      <a href="#" class="menu" onclick="toggleSidebarDropdown(event)">
+      <i class="fa-solid fa-school"></i>Result
+    </a>
+
+    <div class="dropdown-content" id="ResultMenu">
+      <a href="#">Class 10</a>
+      <a href="#"> Class 11</a>
+      <a href="#"> Class 12</a>
+    </div>
+    <a href="./admin.html" class="menu logout">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+  </aside>
+
+  <main class="main">
+    <p class="section-title">School Details</p>
+      <div class="flex">
+<div class="box">
+    <div class="card">
+        <a href="edmain.html"><img src="./img/edmark.jpg" alt="Question Paper"></a><br>
+        <a href="edmain.html">ED-MARK</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/kasthamandap.png" alt="Question Paper"></a><br>
+        <a href="#">kASTHAMANDAP</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/kist.jpg" alt="Question Paper"></a><br>
+        <a href="#">KIST</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/napalaya.png" alt="Question Paper"></a><br>
+        <a href="#">NEPALAYA</a>
+    </div>
+</div>
+    </div>
+      <div class="flex">
+<div class="box">
+    <div class="card">
+        <a href="#"><img src="./img/uniglobe.jfif" alt="Question Paper"></a><br>
+        <a href="#">UNIGLOBE</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/BernHardt College.jfif" alt="Question Paper"></a><br>
+        <a href="#">BernHardt</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/reed model.jfif" alt="Question Paper"></a><br>
+        <a href="#">Reed Model</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/United College.png" alt="Question Paper"></a><br>
+        <a href="#">United College</a>
+    </div>
+</div>
+    </div>
+     <div class="flex">
+<div class="box">
+    <div class="card">
+        <a href="#"><img src="./img/edmark.jpg" alt="Question Paper"></a><br>
+        <a href="#">ED-MARK</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/kasthamandap.png" alt="Question Paper"></a><br>
+        <a href="#">kASTHAMANDAP</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/kist.jpg" alt="Question Paper"></a><br>
+        <a href="#">KIST</a>
+    </div>
+    <div class="card">
+        <a href="#"><img src="./img/napalaya.png" alt="Question Paper"></a><br>
+        <a href="#">NEPALAYA</a>
+    </div>
+</div>
+    </div>
+    </div>
+  
+
+    </div>
+  </main>
+
+</div>
+
+<script>
+function toggleSidebarDropdown(e) {
+  e.preventDefault();
+  document.getElementById("schoolMenu").classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>

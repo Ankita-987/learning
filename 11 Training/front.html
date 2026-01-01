@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email OTP with EmailJS</title>
+<style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    #otpSection { display: none; }
+    .message { font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h2>Email OTP Verification</h2>
+
+<label>Email:</label>
+<input type="email" id="email" placeholder="Enter your email" required>
+<button onclick="sendOTP()">Send OTP</button>
+<br><br>
+
+<div id="otpSection">
+    <label>Enter OTP:</label>
+    <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6">
+    <button onclick="verifyOTP()">Verify OTP</button>
+</div>
+
+<p class="message" id="message"></p>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    emailjs.init("pokharel.anki123@gmail.com"); 
+
+    let generatedOTP;
+
+    function generateOTP() {
+        return Math.floor(100000 + Math.random() * 900000);
+    }
+
+    function sendOTP() {
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+            alert("Please enter your email");
+            return;
+        }
+
+        generatedOTP = generateOTP();
+        document.getElementById('otpSection').style.display = 'block';
+        document.getElementById('message').innerText = "Sending OTP...";
+
+        emailjs.send("service_mxnsjac", "template_q6q585f", {
+            otp: generatedOTP,
+            to_email: email
+        })
+        .then(function(response) {
+            document.getElementById('message').innerText = "OTP sent to your email!";
+        }, function(error) {
+            document.getElementById('message').innerText = " Failed to send OTP. Try again.";
+            console.error("EmailJS error:", error);
+        });
+    }
+
+    function verifyOTP() {
+        const userOTP = document.getElementById('otpInput').value.trim();
+        if (userOTP === generatedOTP.toString()) {
+            document.getElementById('message').innerText = "OTP verified successfully!";
+        } else {
+            document.getElementById('message').innerText = "Invalid OTP. Try again.";
+        }
+    }
+</script>
+
+</body>
+</html>
