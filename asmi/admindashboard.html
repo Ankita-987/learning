@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./admindashboard.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>E-LEARNING</h1>
+    </div>
+
+    <!-- DASHBOARD WRAPPER -->
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <!-- ADMIN PROFILE -->
+            <div class="admin-profile">
+                <img src="./img/admin.jpeg" alt="Admin">
+                <h3>Welcome, Admin</h3>
+            </div>
+
+            <!-- MENU -->
+            <ul class="menu">
+                <!-- School Profile Dropdown -->
+                <li class="dropdown">
+                    <a href="#">
+                        <i class="fa-solid fa-school"></i>
+                        School Profile
+                        <i class="fa-solid fa-caret-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./student_information.html"><i class="fa-solid fa-circle-user"></i>Student Information</a></li>
+                        <li><a href="#"><i class="fa-solid fa-trophy"></i>Scholarship</a></li>
+                        <li><a href="#"><i class="fa-solid fa-clipboard-user"></i>Attendance</a></li>
+                        <li><a href="#"><i class="fa-solid fa-file-pen"></i>Update</a></li>
+                        <li><a href="#"><i class="fa-regular fa-id-card"></i>ID Card</a></li>
+                        <li><a href="#"><i class="fa-solid fa-clipboard"></i>Revive Student</a></li>
+                    </ul>
+                </li>
+
+                <!-- Manage Exam -->
+               <ul class="menu">
+                <!-- School Profile Dropdown -->
+                <li class="dropdown">
+                    <a href="#">
+                        <i class="fa-solid fa-school"></i>
+                        Manage Exam
+                        <i class="fa-solid fa-caret-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa-solid fa-book"></i>Subject Management</a></li>
+                        <li><a href="#"><i class="fa-solid fa-file"></i>Application Form</a></li>
+                        <li><a href="#"><i class="fa-solid fa-address-card"></i>Admit Card</a></li>
+                        <li><a href="#"><i class="fa-solid fa-marker"></i>Marks Entry</a></li>
+                        <li><a href="#"><i class="fa-solid fa-square-poll-vertical"></i>Published Result</a></li>
+                    </ul>
+                <!-- Teachers Staff -->
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-people-group"></i>
+                        Teachers | Staff
+                    </a>
+                </li>
+
+                <!-- Disability DMS -->
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-medical"></i>
+                        Disability DMS
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Logout Button -->
+            <button class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href="./admin_login.html"> Logout</a>
+            </button>
+
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <h2>Dashboard</h2>
+        </div>
+
+    </div>
+
+</body>
+</html>

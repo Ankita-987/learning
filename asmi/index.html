@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register form</title>
+<link rel="stylesheet" href="./registerform.css">
+<style>
+  .glass { max-width: 400px; margin: 50px auto; padding: 20px; border-radius: 10px; background: rgba(255,255,255,0.2); }
+  .row input { margin-bottom: 10px; width: 100%; padding: 8px; }
+  button { padding: 10px 15px; margin-top: 10px; cursor: pointer; }
+  #otpSection { margin-top: 15px; display: none; }
+  #message { margin-top: 10px; color: green; }
+</style>
+</head>
+<body>
+<div class="glass">
+  <h1>E-Learning</h1>
+  <p>Select your role</p>
+
+  <div class="row">
+    <input type="text" id="firstName" placeholder="First Name" required>
+    <input type="text" id="middleName" placeholder="Middle Name">
+    <input type="text" id="lastName" placeholder="Last Name" required>
+  </div>
+
+  <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+
+  <select id="role" required>
+    <option value="">Select your Role</option>
+    <option value="teacherlogin.html">Teacher</option>
+    <option value="login.html">Student</option>
+  </select>
+
+  <button type="button" onclick="sendOTP()">Send OTP</button>
+
+  <div id="otpSection">
+    <input type="text" id="otpInput" placeholder="Enter OTP">
+    <button type="button" onclick="verifyOTP()">Verify OTP</button>
+  </div>
+
+  <div id="message"></div>
+</div>
+
+<script>
+let generatedOTP = ""; // Store OTP in memory
+
+function sendOTP() {
+  const phone = document.getElementById("phone").value.trim();
+  const role = document.getElementById("role").value;
+
+  if (!phone.match(/^[0-9]{10}$/)) {
+    alert("Please enter a valid 10-digit phone number");
+    return;
+  }
+  if (role === "") {
+    alert("Please select your role first");
+    return;
+  }
+
+  // Generate 6-digit OTP
+  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+
+  // Show OTP for testing
+  document.getElementById("message").innerText = "OTP sent! Your OTP is: " + generatedOTP;
+
+  // Show OTP input
+  document.getElementById("otpSection").style.display = "block";
+}
+
+function verifyOTP() {
+  const enteredOTP = document.getElementById("otpInput").value.trim();
+  const role = document.getElementById("role").value;
+
+  if (enteredOTP === generatedOTP) {
+    document.getElementById("message").innerText = "OTP verified successfully! Redirecting...";
+    
+    // Hide OTP input after verification
+    document.getElementById("otpSection").style.display = "none";
+
+    // Optional: clear input fields
+    document.getElementById("otpInput").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("firstName").value = "";
+    document.getElementById("middleName").value = "";
+    document.getElementById("lastName").value = "";
+
+    // Redirect after 2 seconds
+    setTimeout(() => {
+      window.location.href = role;
+    }, 2000);
+  } else {
+    document.getElementById("message").innerText = "Invalid OTP. Please try again.";
+  }
+}
+</script>
+</body>
+</html>

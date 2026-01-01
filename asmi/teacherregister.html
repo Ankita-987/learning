@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Registration form</title>
+    <link rel="stylesheet" href="./teacherregister.css"
+</head>
+<body>
+   <div class="glass">
+    <h2>Teacher Signup Form</h2>
+    <form>
+        <label>Educational Qualification:</label>
+        <input type="text" name="educational qualification" placeholder="Enter your Qualification"> <br>
+        <label>School/College name:</label>
+        <input type="text" name="school" placeholder="Enter your School/College name"> <br>
+        <label>Faculty:</label>
+        <select required>
+            <option value="">Select Faculty</option>
+            <option>Science</option>
+            <option>Arts</option>
+            <option>Commerce</option>
+        </select><br>
+        <label>Email:</label>
+        <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Enter your email "><br>
+<button type="submit">Register</button>
+    </form>
+
+   </div> 
+</body>
+</html>
